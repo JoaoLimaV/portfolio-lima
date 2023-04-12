@@ -6,7 +6,11 @@ html, body {
     min-width: none;    
 
     margin: 0;
-    scroll-behavior: smooth;
+    
+}
+
+.hideBody{
+    overflow: hidden;
 }
 
 html::-webkit-scrollbar {
@@ -28,7 +32,6 @@ main{
     position:absolute;
     width: 100%;
     height: 100%;
-    z-index: 1;
 }
 
 .text-justify{
@@ -40,23 +43,6 @@ main{
 }
 
 /* Background */
-
-.videoBackground {
-    position:fixed;
-    z-index: -2;
-}
-
-.staticBackground {
-    position:fixed;
-    z-index: -2;
-
-    width: 100%;
-    height: 100%;
-
-    /* background: rgb(33, 37, 41) url('../img/montanhas.png');
-    background-size: cover; */
-    opacity: 0.8;
-}
 
 /* Nav */
 
@@ -103,6 +89,10 @@ nav{
 
 .imgUser{
     width: 350px;
+}
+
+#penes{
+    font-weight: bold;
 }
 
 .div-pessoal{
@@ -320,23 +310,6 @@ li.page-item:hover{
 
 /* Media Queries */ 
 
-@media (min-aspect-ratio: 16/9) {
-    /* Background */
-
-    .videoBackground {
-        width:100%;
-        height: auto;
-    }
-}
-@media (max-aspect-ratio: 16/9) {
-    /* Background */
-
-    .videoBackground { 
-        width:auto;
-        height: 100%;
-    }
-}
-
 @media (max-width: 785px) {
     /* Default */ 
     
@@ -387,6 +360,7 @@ li.page-item:hover{
     .a-redes{
         margin: 5px 5px 5px 5px;
     }
+
 }
 
 /* Animations - KeyFrames */ 

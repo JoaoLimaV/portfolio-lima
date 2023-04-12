@@ -8,14 +8,21 @@ window.addEventListener('load', function () {
 
 // Texto Digita Sozinho - Inicio
 
-    const typeIt = new TypeIt("#texto-digita-sozinho", {
+    const typeJob = new TypeIt("#texto-digita-sozinho", {
         loop: true,
     })
     .type('Desenvolvedor Web', {delay: 1000}).delete(17)
     .type('BackEnd e FrontEnd', {delay: 1000}).delete(29)
     .go();
 
-typeIt.go();
+    const typeLogo = new TypeIt("#logo", {
+        loop: true,
+    })
+    .type('<i class="fa-solid fa-code"></i> João Lima', {delay: 3000}).delete(42)
+    .go();
+
+typeJob.go();
+typeLogo.go();
 
 // OffCanvas Mobile
 
@@ -25,6 +32,7 @@ function closeOC() {
         btn_oc.click();
     }, 500);
 }
+
 
 // Download CV
 
@@ -91,14 +99,13 @@ btnFormacoes.addEventListener('click', (e) => {
 //Carrousel - Meu projetos
 
 let aux = 0;
-let tScreen = 650;
-
-window.addEventListener('resize', function () {
-    var largura = window.screen.width;
-    tScreen = (largura <= 785) ? 370 : 650;
-});
+let tScreen = 0;
 
 function slide(sinal) {
+
+    var largura = window.screen.width;
+    tScreen = (largura <= 785) ? 370 : 650;
+    
     var carrousel = document.getElementById("carrousel");
     var numProjetos = document.querySelectorAll(".projeto");
     aux++;
