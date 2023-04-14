@@ -31,13 +31,13 @@ const player = {
     width: null,
     height: null,
     sprites: {
-        jump : '../img/game/jump.png',
-        attack: '../img/game/attack.gif',
-        stop: '../img/game/stop.gif',
-        deathGIF: '../img/game/deathGIF.gif',
-        deathPNG: '../img/game/deathPNG.png',
-        hurth: '../img/game/hurth.gif',
-        run: '../img/game/run.gif'
+        jump : 'img/game/jump.png',
+        attack: 'img/game/attack.gif',
+        stop: 'img/game/stop.gif',
+        deathGIF: 'img/game/deathGIF.gif',
+        deathPNG: 'img/game/deathPNG.png',
+        hurth: 'img/game/hurth.gif',
+        run: 'img/game/run.gif'
     },
     x : 50,
     y : 50,
@@ -47,8 +47,8 @@ const player = {
 const boss = {
     element: document.getElementById('boss'),
     attackSprite: {
-        fallGunter : '../img/game/fallGunter.gif',
-        slideGunter : '../img/game/slideGunter.gif'
+        fallGunter : 'img/game/fallGunter.gif',
+        slideGunter : 'img/game/slideGunter.gif'
     },
     width: null,
     height: null,
@@ -278,7 +278,6 @@ function howPlay() {
 }
 
 function dontShowAgain(){
-    console.log('aaaaa')
     if( !localStorage.getItem('dontShowAgain') ){
         localStorage.setItem('dontShowAgain', true);
         return;
