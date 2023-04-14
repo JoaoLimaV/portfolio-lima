@@ -2,6 +2,14 @@
     font-family: game-over;
     src: url('../font/PixelGameFont.ttf');
 }
+#play-game{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+
+    z-index: 1;
+    cursor: pointer;
+}
 
 #game{
     position: fixed;
@@ -28,6 +36,17 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
+}
+
+#how-play{
+    width: 100%;
+    height: 100%;
+    
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: 1;
+    
 }
 
 #content-game-over{
@@ -320,5 +339,11 @@
     }
     100% {
       transform: scale(1);
+    }
+}
+
+@media (max-width: 785px) {
+    #play-game{
+       display: none;
     }
 }

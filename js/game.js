@@ -271,7 +271,40 @@ let intervalCreateHShot;
 let intervalCreateVShot;
 let intervalSecondsSurvived;
 
+function howPlay() {
+    let divHowPlay = document.getElementById("how-play")
+    divHowPlay.classList.remove("d-none");
+    divHowPlay.classList.add("d-flex");
+}
+
+function dontShowAgain(){
+    console.log('aaaaa')
+    if( !localStorage.getItem('dontShowAgain') ){
+        localStorage.setItem('dontShowAgain', true);
+        return;
+    }
+
+    localStorage.removeItem('dontShowAgain');
+}
+
+function closeHowPlay(){
+    let divHowPlay = document.getElementById("how-play")
+    divHowPlay.classList.add("d-none");
+    divHowPlay.classList.remove("d-flex");
+
+    restartGame();
+}
+
+
 function startGame(){
+
+    div_game.style.display = 'block';
+    body.classList.add('hideBody')
+
+    if( !localStorage.getItem('dontShowAgain')){
+        howPlay();
+        return;
+    }
 
     // Player Loop 
     intervalMovePlayer = setInterval(movePlayer, 50);
@@ -280,14 +313,22 @@ function startGame(){
     intervalVerifyCollisionSH = setInterval(verifyCollisionSH, 50);
     intervalVerifyCollisionSV = setInterval(verifyCollisionSV, 50);
     
-    intervalCreateHShot = setInterval(createHShot, 2500);
-    intervalCreateVShot = setInterval(createVShot, 3000);
+    intervalCreateHShot = setInterval(createHShot, 2000);
+    intervalCreateVShot = setInterval(createVShot, 2000);
 
     intervalSecondsSurvived = setInterval(points, 1000)
-    
 
-    div_game.style.display = 'block';
-    body.classList.add('hideBody')
+    player.spritePlayer.style.width = "65px"
+    player.spritePlayer.style.height = "87px"
+
+    elementVida.style.width = '100%';
+    elementFinishGame.style.display = "none";
+    player.life = 4;
+    gameVariables.points = 0;
+    player.spritePlayer.src = player.sprites.stop
+    gameVariables.enableDamagePlayer = true;
+    gameVariables.enableMovePlayer = true;
+
     player.width = player.element.offsetWidth;
     player.height = player.element.offsetHeight; 
 }
@@ -361,8 +402,8 @@ function restartGame(){
     intervalVerifyCollisionSH = setInterval(verifyCollisionSH, 50);
     intervalVerifyCollisionSV = setInterval(verifyCollisionSV, 50);
     
-    intervalCreateHShot = setInterval(createHShot, 2500);
-    intervalCreateVShot = setInterval(createVShot, 3000);
+    intervalCreateHShot = setInterval(createHShot, 2000);
+    intervalCreateVShot = setInterval(createVShot, 2000);
 
     intervalSecondsSurvived = setInterval(points, 1000)
 
@@ -376,6 +417,8 @@ function restartGame(){
     gameVariables.enableDamagePlayer = true;
     gameVariables.enableMovePlayer = true;
 
+    player.width = player.element.offsetWidth;
+    player.height = player.element.offsetHeight; 
     
 
 }

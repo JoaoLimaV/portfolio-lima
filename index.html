@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- Local CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Local Game CSS -->
@@ -21,10 +23,14 @@
 
 <body class=" bg-dark">
 
+    <div id="play-game" onclick="startGame()">
+        <i class="fa-solid fa-gamepad fa-beat text-white fs-1 "></i>
+    </div>
+
     <div id="game">
         <div id="finish-game">
             <div id="content-game-over">
-                <span id="span-game-over" class="fs-1" > GAME-OVER </span> 
+                <span id="span-game-over" class="fs-1"> GAME-OVER </span>
 
                 <div id="stars">
                     <i class="fa-solid fa-star display-4 star-game"></i>
@@ -32,13 +38,86 @@
                     <i class="fa-solid fa-star display-4 star-game"></i>
                 </div>
 
-                <span id="metricas"  class="fs-5"> Pontos: <span id="pontos"></span></span>
+                <span id="metricas" class="fs-5"> Pontos: <span id="pontos"></span></span>
 
                 <div id="btns" class="d-flex justify-content-center align-items-center">
-                    <i class="fa-solid fa-xmark fs-4"           style="color:red;" onclick="exitGame()"></i>
-                    <i class="fa-solid fa-rotate-right fs-1"    style="color:green; margin-bottom: 15px;" onclick="restartGame()"></i>
+                    <i class="fa-solid fa-xmark fs-4" style="color:red;" onclick="exitGame()"></i>
+                    <i class="fa-solid fa-rotate-right fs-1" style="color:green; margin-bottom: 15px;"
+                        onclick="restartGame()"></i>
                     <i class="fa-solid fa-list fs-4 opacity-25" style="color:white;"></i>
                 </div>
+
+            </div>
+        </div>
+
+        <div id="how-play" class="d-none align-items-center justify-content-center flex-column ">
+
+            <div class="bg-dark p-5 d-inline-flex align-items-center justify-content-center flex-column w-75 ">
+
+                <div class="accordion w-100" id="accordionExample">
+                    <div class="accordion-item bg-transparent">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button bg-transparent text-secondary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Qual o Objetivo?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body bg-transparent text-white text-justify">
+                                <strong>O objetivo do jogo</strong> é sobreviver o máximo de tempo possível. Durante sua trajetória
+                                o rei gelado ira jogar vários pinguis em você. Desvie deles para sobreviver <strong> Você tem 4 vidas </strong>
+                                Quando morrer, poderá ver sua pontuação e quantidade de estrelas. Boa sorte!
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="accordion-item bg-transparent">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed bg-transparent text-secondary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Controles
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body bg-transparent text-white text-justify">
+                                Utilize as setas direcionais para se locomover e desviar dos pinguins. É possível pular, andar para direita e esquerda.
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="accordion-item bg-transparent">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed bg-transparent text-secondary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Sobre esse Jogo
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body bg-transparent text-white text-justify">
+                                Esse jogo foi feito interamente em HTML, CSS E JS (Verificações de colisão, crianção de elementos, vida, contador e etc)
+                                para ampliar o conhecimento nas linguagens em si
+                                e a lógica por trás de um joguinho "simples" de plataforma. <br> Sou fan de Hora de Aventura, por isso as imagens relacionadas.
+                                Os pinguins e o rei gelado foram obras minhas, utilizando uma ferramenta online de desenhar com pixels. 
+                                O personagem principal (Finn), você pode encontrar o criador nesse link: <a _blank href="https://lhteam.itch.io/finn-sprite"> https://lhteam.itch.io/finn-sprite </a>
+                                <br><br><strong>Importante lembrar que ele se encontra em BETA </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="form-check" onclick="dontShowAgain()" style="margin-top: 15px;" >
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label text-white" for="flexCheckDefault" onclick="dontShowAgain()">
+                        Não mostrar esse tutorial novamente. 
+                    </label>
+                </div>
+
+                <button type="button" onclick="closeHowPlay()" style="margin-top: 15px; border: none; background-color: transparent;">
+                    <i class="fa-regular fa-circle-xmark fs-2" style="color: #ffffff;"></i>
+                </button>        
 
             </div>
         </div>
@@ -50,58 +129,72 @@
         </div>
 
         <div id="div-vida">
-            <div id="vida">  </div>
+            <div id="vida"> </div>
         </div>
 
     </div>
 
-     <!-- NAV BAR -->
+    <!-- NAV BAR -->
     <nav class="navbar fixed-top p-0">
         <div class="container-fluid">
 
             <span class="navbar-brand navbar-dark text-white" href="" id="logo"> </span>
 
             <ul class="nav p-1 d-flex align-items-center justify-content-end d-none d-md-flex">
-                    <li class="nav-item mx-1"><a href="#inicio"      class="nav-link p-0 mx-2 text-white linkAnimation"> Inicio        </a></li>
-                    <li class="nav-item mx-1"><a href="#sobremim"    class="nav-link p-0 mx-2 text-white linkAnimation"> Sobre Mim     </a></li>
-                    <li class="nav-item mx-1"><a href="#meusprojetos"    class="nav-link p-0 mx-2 text-white linkAnimation"> Meus Projetos     </a></li>
-                    <li class="nav-item mx-1"><a href="#contato" class="nav-link p-0 mx-2 text-white linkAnimation">     Contato       </a></li>
-                    <!-- <li class="nav-item dropstart">
+                <li class="nav-item mx-1"><a href="#inicio" class="nav-link p-0 mx-2 text-white linkAnimation"> Inicio
+                    </a></li>
+                <li class="nav-item mx-1"><a href="#sobremim" class="nav-link p-0 mx-2 text-white linkAnimation"> Sobre
+                        Mim </a></li>
+                <li class="nav-item mx-1"><a href="#meusprojetos" class="nav-link p-0 mx-2 text-white linkAnimation">
+                        Meus Projetos </a></li>
+                <li class="nav-item mx-1"><a href="#contato" class="nav-link p-0 mx-2 text-white linkAnimation"> Contato
+                    </a></li>
+                <!-- <li class="nav-item dropstart">
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="checkPc" checked>
                             <label class="form-check-label text-white" for="flexSwitchCheckDefault"> Fundo animado </label>
                         </div>
                     </li> -->
-                    <li class="nav-item mx-1">
-                        <a href="https://github.com/JoaoLimaV" class="nav-link p-0 mx-2 text-white linkAnimation" target="_blank"><i class="fa-brands fa-github fs-2 p-2"></i></a>
-                    </li>
+                <li class="nav-item mx-1">
+                    <a href="https://github.com/JoaoLimaV" class="nav-link p-0 mx-2 text-white linkAnimation"
+                        target="_blank"><i class="fa-brands fa-github fs-2 p-2"></i></a>
+                </li>
             </ul>
 
-            <button class="btn bg-transparent border-0 navbar-toggler d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+            <button class="btn bg-transparent border-0 navbar-toggler d-block d-md-none" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                aria-controls="offcanvasWithBothOptions">
                 <i class="fa-solid fa-bars text-white"></i>
             </button>
 
-            <div class="offcanvas offcanvas-end bg-dark" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas offcanvas-end bg-dark" data-bs-scroll="true" tabindex="-1"
+                id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header border-bottom">
                     <h5 class="offcanvas-title text-white" id="offcanvasWithBothOptionsLabel"> Menu </h5>
-                    <button type="button" class="btn-close btn-close-white" id="btn-close-oc" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" id="btn-close-oc"
+                        data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active text-white linkAnimation" type="button"  href="#inicio" onclick="closeOC()">       
-                                <i class="fa-solid fa-house"></i> Inicio 
+                            <a class="nav-link active text-white linkAnimation" type="button" href="#inicio"
+                                onclick="closeOC()">
+                                <i class="fa-solid fa-house"></i> Inicio
                             </a>
-                            <a class="nav-link active text-white linkAnimation" type="button"  href="#sobremim" onclick="closeOC()">     
-                                <i class="fa-solid fa-user"></i> Sobre Mim                
+                            <a class="nav-link active text-white linkAnimation" type="button" href="#sobremim"
+                                onclick="closeOC()">
+                                <i class="fa-solid fa-user"></i> Sobre Mim
                             </a>
-                            <a class="nav-link active text-white linkAnimation" type="button"  href="#meusprojetos" onclick="closeOC()"> 
-                                <i class="fa-solid fa-list-check"></i> Meus Projetos            
+                            <a class="nav-link active text-white linkAnimation" type="button" href="#meusprojetos"
+                                onclick="closeOC()">
+                                <i class="fa-solid fa-list-check"></i> Meus Projetos
                             </a>
-                            <a class="nav-link active text-white linkAnimation" type="button"  href="#contato" onclick="closeOC()"  >      
-                                <i class="fa-solid fa-address-book"></i> Contato                  
+                            <a class="nav-link active text-white linkAnimation" type="button" href="#contato"
+                                onclick="closeOC()">
+                                <i class="fa-solid fa-address-book"></i> Contato
                             </a>
-                            <a href="https://github.com/JoaoLimaV" class="nav-link active text-white linkAnimation" target="_blank">
+                            <a href="https://github.com/JoaoLimaV" class="nav-link active text-white linkAnimation"
+                                target="_blank">
                                 <i class="fa-brands fa-github"></i> Git Hub
                             </a>
                             <!-- <div class="form-check form-switch">
@@ -112,52 +205,56 @@
                     </ul>
                 </div>
             </div>
-            
+
         </div>
     </nav>
 
-    
+
     <!-- <video autoplay loop muted class="videoBackground">
         <source  src="img/video.mp4" type="video/mp4">
     </video> -->
 
-    <div class="staticBackground"></div>
     <div style="height: 50px;" class="separador"></div>
 
-   <main class="" id="inicio">
+    <main class="" id="inicio">
 
         <div class="container-fluid h-100 d-flex justify-content-center align-items-center flex-wrap inicio">
 
             <div class="col-12 col-lg-6 d-flex justify-content-center flex-wrap fadeIn ">
-     <!--            <div class="d-flex justify-content-center align-items-center p-3">
+                <!--            <div class="d-flex justify-content-center align-items-center p-3">
                     <img src="https://cetcc.com.br/giga_site_git/public/cetcc/img/user/man.png" class="border border-2 rounded-circle imgUser" >
                 </div> -->
-                
+
                 <div class="d-flex justify-content-center align-items-center flex-column p-3">
                     <small class="text-white text-center fs-1 opacity-75 penes"> Olá, eu sou </small>
                     <small class="text-white text-center display-2"> João Lima </small>
                     <small class="text-white text-center fs-1 opacity-75" id="texto-digita-sozinho"></small>
-                    
-                    <button type="button" class="btn btn-outline-light btn-lg mt-3" onclick="downloadCV()"> <i class="fa-solid fa-download"></i> Baixar CV </button>
+
+                    <button type="button" class="btn btn-outline-light btn-lg mt-3" onclick="downloadCV()"> <i
+                            class="fa-solid fa-download"></i> Baixar CV </button>
                     <!-- <p class="lead text-white text-center">
                         Olá, sou estudante de programação pela FATEC, atualmente estou focado em desenvolvimento-web, porém estou aberto a novos desafios.
                     </p> -->
 
                     <div class="d-flex justify-content-center flex-wrap align-items-center w-100 fs-5 mb-5 text-white">
                         <div class="mb-4 div-pessoal">
-                            <i class="fa-solid fa-calendar-days i-pessoal"></i> <small class="small-pessoal">19 Anos</small>
+                            <i class="fa-solid fa-calendar-days i-pessoal"></i> <small class="small-pessoal">20
+                                Anos</small>
                         </div>
 
                         <div class="mb-4 div-pessoal">
-                            <i class="fa-solid fa-location-dot i-pessoal"></i> <small class="small-pessoal"> Osasco/SP </small>
+                            <i class="fa-solid fa-location-dot i-pessoal"></i> <small class="small-pessoal"> Osasco/SP
+                            </small>
                         </div>
 
                         <div class="mb-4 div-pessoal">
-                            <i class="fa-solid fa-building i-pessoal"></i> <small class="small-pessoal"> Algar Tech </small>
+                            <i class="fa-solid fa-building i-pessoal"></i> <small class="small-pessoal"> Algar Tech
+                            </small>
                         </div>
 
                         <div class="mb-4 div-pessoal">
-                            <i class="fa-solid fa-school i-pessoal"></i> <small class="small-pessoal"> Fatec Osasco </small>
+                            <i class="fa-solid fa-school i-pessoal"></i> <small class="small-pessoal"> Fatec Osasco
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -179,11 +276,14 @@
 
         <div id="sobremim" class="d-flex justify-content-start justify-content-center align-items-center flex-column">
 
-            <div class="mt-5 mb-5"> 
+            <div class="mt-5 mb-5">
                 <ul class="pagination">
-                  <li class="page-item active" id="btnLinguaguens"><span class="page-link bg-transparent text-white">Técnologias</span></li>
-                  <li class="page-item" id="btnExperiencia"><span class="page-link bg-transparent text-white">Experiências</span></li>
-                  <li class="page-item" id="btnFormacoes"><span class="page-link bg-transparent text-white">Formações</span></li>
+                    <li class="page-item active" id="btnLinguaguens"><span
+                            class="page-link bg-transparent text-white">Técnologias</span></li>
+                    <li class="page-item" id="btnExperiencia"><span
+                            class="page-link bg-transparent text-white">Experiências</span></li>
+                    <li class="page-item" id="btnFormacoes"><span
+                            class="page-link bg-transparent text-white">Formações</span></li>
                 </ul>
             </div>
 
@@ -192,25 +292,25 @@
                 <div>
                     <h1 class="display-6 text-center mb-2"> Habilidades </h1>
                     <div class="d-flex justify-content-center flex-wrap display-4 w-100 mt-3">
-                            <i class="fa-brands fa-html5 m-4"></i>
-                            <i class="fa-brands fa-css3-alt m-4"></i>
-                            <i class="fa-brands fa-js m-4"></i>
-            
-                            <i class="fa-brands fa-php m-4"></i>
-                            <i class="fa-brands fa-java m-4"></i>
-                            <i class="fa-solid fa-database m-4"></i>
+                        <i class="fa-brands fa-html5 m-4"></i>
+                        <i class="fa-brands fa-css3-alt m-4"></i>
+                        <i class="fa-brands fa-js m-4"></i>
+
+                        <i class="fa-brands fa-php m-4"></i>
+                        <i class="fa-brands fa-java m-4"></i>
+                        <i class="fa-solid fa-database m-4"></i>
                     </div>
                 </div>
 
                 <div>
                     <h1 class="display-6 text-center mt-3">Técnologias </h1>
 
-                    <div  class="d-flex justify-content-center flex-wrap display-4 w-100 mt-3">
-                            <i class="fa-solid fa-font-awesome m-4"></i>
-                            <i class="fa-solid fa-cloud m-4"></i>
-                            <i class="fa-brands fa-bootstrap m-4"></i>
-                            <i class="fa-brands fa-git m-4"></i>
-                            <i class="fa-brands fa-github m-4"></i>
+                    <div class="d-flex justify-content-center flex-wrap display-4 w-100 mt-3">
+                        <i class="fa-solid fa-font-awesome m-4"></i>
+                        <i class="fa-solid fa-cloud m-4"></i>
+                        <i class="fa-brands fa-bootstrap m-4"></i>
+                        <i class="fa-brands fa-git m-4"></i>
+                        <i class="fa-brands fa-github m-4"></i>
                     </div>
                 </div>
 
@@ -218,57 +318,70 @@
 
             <div class="col-10 col-lg-6 d-none flex-column text-white mb-3" id="divExperiencia">
                 <h1 class="display-6 text-center"> Experiência Profissional </h1>
-                
-                <div class="border-top border-bottom border-white border-opacity-25 d-flex  flex-column justify-content-center align-items-center fs-5 mt-3 pt-4 pb-3 ">                
-                        <i class="fa-solid fa-building display-5 mb-2"> </i> 
-                        <a href="" class="mb-2"> Algar Tech </a>
-                        <span class="mb-2 text-center"> Estagiário de Analista de Infraestrutura TI</span>
-                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Mai/2022 - Atualmente </span>
-                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-solid fa-location-dot"></i> Uberlândia (remoto) </span>
+
+                <div
+                    class="border-top border-bottom border-white border-opacity-25 d-flex  flex-column justify-content-center align-items-center fs-5 mt-3 pt-4 pb-3 ">
+                    <i class="fa-solid fa-building display-5 mb-2"> </i>
+                    <a href="" class="mb-2"> Algar Tech </a>
+                    <span class="mb-2 text-center"> Estagiário de Analista de Infraestrutura TI</span>
+                    <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Mai/2022 - Atualmente
+                    </span>
+                    <span class="fs-6 mb-2 opacity-50"> <i class="fa-solid fa-location-dot"></i> Uberlândia (remoto)
+                    </span>
                 </div>
             </div>
 
             <div class="col-10 col-lg-8 d-none flex-column justify-content-center text-white mb-3" id="divFormacoes">
                 <h1 class="display-6 text-center w-100 "> Formações e cursos complementares </h1>
-                
+
                 <div class="cardContainer d-flex flex-wrap">
-                    <div class="border-top border-bottom border-white border-opacity-25 d-flex flex-column justify-content-center align-items-center fs-5 m-3 p-4 cardItem">  
-                            <i class="fa-solid fa-certificate display-5 mb-2 text-warning"></i>            
-                            <a href="" class="mb-2" target="_blank"> Fatec </a>
-                            <span class="mb-2"> Cursando - DSM </span>
-                            <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Fev/2022 - Dez/2024 </span>
-                            <span class="fs-6 mb-2 opacity-50"> <i class="fa-solid fa-location-dot"></i> Osasco - SP </span>
+                    <div
+                        class="border-top border-bottom border-white border-opacity-25 d-flex flex-column justify-content-center align-items-center fs-5 m-3 p-4 cardItem">
+                        <i class="fa-solid fa-certificate display-5 mb-2 text-warning"></i>
+                        <a href="" class="mb-2" target="_blank"> Fatec </a>
+                        <span class="mb-2"> Cursando - DSM </span>
+                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Fev/2022 - Dez/2024
+                        </span>
+                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-solid fa-location-dot"></i> Osasco - SP </span>
                     </div>
 
-                    <div class="border-top border-bottom border-white border-opacity-25 d-flex flex-column justify-content-center align-items-center fs-5 m-3 p-4 cardItem">  
-                        <i class="fa-solid fa-certificate display-5 mb-2 text-warning"></i>         
+                    <div
+                        class="border-top border-bottom border-white border-opacity-25 d-flex flex-column justify-content-center align-items-center fs-5 m-3 p-4 cardItem">
+                        <i class="fa-solid fa-certificate display-5 mb-2 text-warning"></i>
                         <a href="" class="mb-2" target="_blank"> Udemy Curso </a>
                         <span class="mb-2"> Cursando - Desenvolv. Web </span>
-                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Jan/2022 - ?/? </span>
+                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Jan/2022 - ?/?
+                        </span>
                         <span class="fs-6 mb-2 opacity-50"> <i class="fa-solid fa-location-dot"></i> Remoto </span>
                     </div>
 
-                    <div class="border-top border-bottom border-white border-opacity-25 d-flex flex-column justify-content-center align-items-center fs-5 m-3 p-4 cardItem">  
-                        <i class="fa-solid fa-certificate display-5 mb-2 text-success"></i>            
+                    <div
+                        class="border-top border-bottom border-white border-opacity-25 d-flex flex-column justify-content-center align-items-center fs-5 m-3 p-4 cardItem">
+                        <i class="fa-solid fa-certificate display-5 mb-2 text-success"></i>
                         <a href="" class="mb-2" target="_blank"> Etec Técnico </a>
                         <span class="mb-2"> Finalizado - DS </span>
-                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Ago/2021 - Dez/2021 </span>
+                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Ago/2021 - Dez/2021
+                        </span>
                         <span class="fs-6 mb-2 opacity-50"> <i class="fa-solid fa-location-dot"></i> Osasco - SP </span>
                     </div>
 
-                    <div class="border-top border-bottom border-white border-opacity-25 d-flex flex-column justify-content-center align-items-center fs-5 m-3 p-4 cardItem">  
-                        <i class="fa-solid fa-certificate display-5 mb-2 text-success"></i>            
+                    <div
+                        class="border-top border-bottom border-white border-opacity-25 d-flex flex-column justify-content-center align-items-center fs-5 m-3 p-4 cardItem">
+                        <i class="fa-solid fa-certificate display-5 mb-2 text-success"></i>
                         <a href="" class="mb-2" target="_blank"> Novotec Expresso </a>
                         <span class="mb-2"> Finalizado - FPJ </span>
-                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Fev/2019 - Dez/2021 </span>
+                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Fev/2019 - Dez/2021
+                        </span>
                         <span class="fs-6 mb-2 opacity-50"> <i class="fa-solid fa-location-dot"></i> Osasco - SP </span>
                     </div>
 
-                    <div class="border-top border-bottom border-white border-opacity-25 d-flex flex-column justify-content-center align-items-center fs-5 m-3 p-4 cardItem">  
-                        <i class="fa-solid fa-certificate display-5 mb-2 text-success"></i>            
+                    <div
+                        class="border-top border-bottom border-white border-opacity-25 d-flex flex-column justify-content-center align-items-center fs-5 m-3 p-4 cardItem">
+                        <i class="fa-solid fa-certificate display-5 mb-2 text-success"></i>
                         <a href="" class="mb-2" target="_blank"> Logus Informática </a>
                         <span class="mb-2"> Finalizado - Informática </span>
-                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Fev/2017 - Jan/2019 </span>
+                        <span class="fs-6 mb-2 opacity-50"> <i class="fa-regular fa-calendar"></i> Fev/2017 - Jan/2019
+                        </span>
                         <span class="fs-6 mb-2 opacity-50"> <i class="fa-solid fa-location-dot"></i> Osasco - SP </span>
                     </div>
                 </div>
@@ -276,128 +389,167 @@
 
         </div>
 
-            <div class="d-flex justify-content-center align-items-center flex-wrap rounded text-white" id="meusprojetos">
+        <div class="d-flex justify-content-center align-items-center flex-wrap rounded text-white" id="meusprojetos">
 
-              <div id="projetos" class="">
-                        <div id="carrousel">
+            <div id="projetos" class="">
+                <div id="carrousel">
 
-                            <div class="projeto">
-                                <div class="textProjeto">
-                                    <div id="titleProjeto" class="m-4">
-                                        <h1 class="fs-4"> Projeto U-Recycle</h1>
-                                    </div>
-            
-                                    <div id="languageProjeto" class="d-flex justify-content-start m-4">
-                                        <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-html5"></i>    HTML</a>
-                                        <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-css3-alt"></i> CSS </a>
-                                        <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-js"></i>       JS  </a>
-                                        <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-php"></i>      PHP </a>
-                                    </div>
-            
-                                    <div class="d-flex justify-content-end align-items-end ">
-                                        <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i class="fa-brands fa-github"></i> GitHub</a>
-                                        <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i class="fa-solid fa-arrow-right-from-bracket"></i> WebSite</a>
-                                    </div>
-                                </div>
-                            </div>
-            
-                            <div class="projeto">
-                                <div class="textProjeto">
-                                    <div id="titleProjeto" class="m-4">
-                                        <h1 class="fs-4"> Retec </h1>
-                                    </div>
-            
-                                    <div id="languageProjeto" class="d-flex justify-content-start m-4">
-                                        <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-html5"></i>    HTML</a>
-                                        <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-css3-alt"></i> CSS </a>
-                                        <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-js"></i>       JS  </a>
-                                        <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-php"></i>      PHP </a>
-                                    </div>
-            
-                                    <div class="d-flex justify-content-end align-items-end ">
-                                        <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i class="fa-brands fa-github"></i> GitHub </a>
-                                        <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i class="fa-solid fa-arrow-right-from-bracket"></i> WebSite</a>
-                                    </div>
-                                </div>
-                            </div>
-            
-                            <div class="projeto">
-                                <div class="textProjeto">
-                                    <div id="titleProjeto" class="m-4">
-                                        <h1 class="fs-4"> Jogo da Velha </h1>
-                                    </div>
-            
-                                    <div id="languageProjeto" class="d-flex justify-content-start m-4">
-                                        <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-html5"></i>    HTML</a>
-                                        <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-css3-alt"></i> CSS </a>
-                                        <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-js"></i>       JS  </a>
-                                    </div>
-            
-                                    <div class="d-flex justify-content-end align-items-end ">
-                                        <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i class="fa-brands fa-github"></i> GitHub</a>
-                                        <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i class="fa-solid fa-arrow-right-from-bracket"></i> WebSite</a>
-                                    </div>
-                                </div>
+                    <div class="projeto">
+                        <div class="textProjeto">
+                            <div id="titleProjeto" class="m-4">
+                                <h1 class="fs-4"> Projeto U-Recycle</h1>
                             </div>
 
-                        </div> 
-                            
-                    <div class="d-flex justify-content-evenly align-items-center w-100 opacity-75" id="slide_buttons">
-                        <button onclick="slide(1)" class="border-0 bg-transparent text-white "> <i class="fa-solid fa-angles-left fs-4"></i> </button>
-                        <button onclick="slide(-1)" class="border-0 bg-transparent text-white"> <i class="fa-solid fa-angles-right fs-4"></i> </button>
+                            <div id="languageProjeto" class="d-flex justify-content-start m-4">
+                                <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-html5"></i>
+                                    HTML</a>
+                                <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-css3-alt"></i>
+                                    CSS </a>
+                                <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-js"></i> JS
+                                </a>
+                                <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-php"></i> PHP
+                                </a>
+                            </div>
+
+                            <div class="d-flex justify-content-end align-items-end ">
+                                <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i
+                                        class="fa-brands fa-github"></i> GitHub</a>
+                                <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i> WebSite</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projeto">
+                        <div class="textProjeto">
+                            <div id="titleProjeto" class="m-4">
+                                <h1 class="fs-4"> Retec </h1>
+                            </div>
+
+                            <div id="languageProjeto" class="d-flex justify-content-start m-4">
+                                <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-html5"></i>
+                                    HTML</a>
+                                <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-css3-alt"></i>
+                                    CSS </a>
+                                <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-js"></i> JS
+                                </a>
+                                <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-php"></i> PHP
+                                </a>
+                            </div>
+
+                            <div class="d-flex justify-content-end align-items-end ">
+                                <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i
+                                        class="fa-brands fa-github"></i> GitHub </a>
+                                <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i> WebSite</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projeto">
+                        <div class="textProjeto">
+                            <div id="titleProjeto" class="m-4">
+                                <h1 class="fs-4"> Jogo da Velha </h1>
+                            </div>
+
+                            <div id="languageProjeto" class="d-flex justify-content-start m-4">
+                                <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-html5"></i>
+                                    HTML</a>
+                                <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-css3-alt"></i>
+                                    CSS </a>
+                                <a class="btn btn-secondary btn-sm" role="button"><i class="fa-brands fa-js"></i> JS
+                                </a>
+                            </div>
+
+                            <div class="d-flex justify-content-end align-items-end ">
+                                <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i
+                                        class="fa-brands fa-github"></i> GitHub</a>
+                                <a class="btn btn-dark btn-sm m-2" href="#" target="_blank" role="button"> <i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i> WebSite</a>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
+
+                <div class="d-flex justify-content-evenly align-items-center w-100 opacity-75" id="slide_buttons">
+                    <button onclick="slide(1)" class="border-0 bg-transparent text-white "> <i
+                            class="fa-solid fa-angles-left fs-4"></i> </button>
+                    <button onclick="slide(-1)" class="border-0 bg-transparent text-white"> <i
+                            class="fa-solid fa-angles-right fs-4"></i> </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center flex-column rounded p-5 text-white bg-opacity-75 bg-dark"
+            id="contato">
+
+            <h1 class="display-6 text-center w-100 "> Contato </h1>
+
+            <p class="text-justify text-md-center">
+                Para entrar em contato comigo, você pode me mandar uma mensagem em alguma rede-social, ou preencher o
+                formulário abaixo para me enviar um email.
+            </p>
+
+
+            <form style="max-width: 500px; width: 100%;" class=" mt-3">
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-transparent text-white" id="basic-addon1"><i
+                            class="fa-solid fa-user"></i></span>
+                    <input type="text" class="form-control bg-transparent text-white" placeholder="Seu nome"
+                        aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-transparent text-white" id="basic-addon1"><i
+                            class="fa-solid fa-envelope"></i> </span>
+                    <input type="text" class="form-control bg-transparent text-white" placeholder="Seu email"
+                        aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="input-group d-flex flex-column mb-3 ">
+                    <textarea type="text" id="text_area_fale" class="form-control bg-transparent text-white w-100"
+                        maxlength="500" rows="10" placeholder="Sua Mensagem" aria-label="Username"
+                        aria-describedby="basic-addon1"></textarea>
+                    <small class="w-100 text-end opacity-1 fs-6 opacity-50" id=""> <span
+                            id="caracter-contato">0</span>/500 </small>
+                </div>
+
+                <button type="submit" class="btn btn-outline-light w-100 rounded-pill p-2">Submit</button>
+            </form>
+
+            <div id="contatos" class="d-flex justify-content-center flex-wrap  fs-2 mt-5">
+                <div class="fs-5 w-100 text-center mb-3"> Minhas Redes Sociais </div>
+                <a href="" target="_blank" class="a-redes a-insta"><i
+                        class="fa-brands fa-instagram text-white p-2 m-3 i-redes"></i><small class="small-redes fs-5">
+                        Instragram </small></a>
+                <a href="https://api.whatsapp.com/send?phone=5511959959724" target="_blank" class="a-redes a-whats"><i
+                        class="fa-brands fa-whatsapp text-white p-2 m-3 i-redes"></i><small class="small-redes fs-5">
+                        Whatsapp </small></a>
+                <a href="https://www.linkedin.com/in/joão-victor-de-lima-5973b722a/" target="_blank"
+                    class="a-redes a-like"><i class="fa-brands fa-linkedin text-white p-2 m-3 i-redes"></i><small
+                        class="small-redes fs-5"> Linkedin </small></a>
+                <a href="" target="_blank" class="a-redes a-tt"><i
+                        class="fa-brands fa-twitter text-white p-2 m-3 i-redes"></i><small class="small-redes fs-5">
+                        Twitter </small></a>
             </div>
 
-            <div class="d-flex justify-content-center align-items-center flex-column rounded p-5 text-white bg-opacity-75 bg-dark" id="contato">
-
-                <h1 class="display-6 text-center w-100 "> Contato </h1>
-                
-                <p class="text-justify text-md-center">
-                    Para entrar em contato comigo, você pode me mandar uma mensagem em alguma rede-social, ou preencher o formulário abaixo para me enviar um email.  
-                </p>
-
-
-                <form style="max-width: 500px; width: 100%;" class=" mt-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text bg-transparent text-white" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                        <input type="text" class="form-control bg-transparent text-white" placeholder="Seu nome" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text bg-transparent text-white" id="basic-addon1"><i class="fa-solid fa-envelope"></i> </span>
-                        <input type="text" class="form-control bg-transparent text-white" placeholder="Seu email" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group d-flex flex-column mb-3 ">
-                        <textarea type="text" id="text_area_fale"class="form-control bg-transparent text-white w-100" maxlength="500" rows="10" placeholder="Sua Mensagem" aria-label="Username" aria-describedby="basic-addon1"></textarea>
-                        <small class="w-100 text-end opacity-1 fs-6 opacity-50" id=""> <span id="caracter-contato">0</span>/500 </small>
-                    </div>
-
-                    <button type="submit" class="btn btn-outline-light w-100 rounded-pill p-2">Submit</button>
-                </form>
-                
-                <div id="contatos" class="d-flex justify-content-center flex-wrap  fs-2 mt-5">
-                    <div class="fs-5 w-100 text-center mb-3"> Minhas Redes Sociais </div>
-                        <a href="" target="_blank" class="a-redes a-insta"><i class="fa-brands fa-instagram text-white p-2 m-3 i-redes"></i><small class="small-redes fs-5"> Instragram </small></a>
-                        <a href="" target="_blank" class="a-redes a-whats"><i class="fa-brands fa-whatsapp text-white p-2 m-3 i-redes"></i><small class="small-redes fs-5"> Whatsapp </small></a>
-                        <a href="https://www.linkedin.com/in/joão-victor-de-lima-5973b722a/" target="_blank" class="a-redes a-like"><i class="fa-brands fa-linkedin text-white p-2 m-3 i-redes"></i><small class="small-redes fs-5"> Linkedin </small></a>
-                        <a href="" target="_blank" class="a-redes a-tt"><i class="fa-brands fa-twitter text-white p-2 m-3 i-redes"></i><small class="small-redes fs-5"> Twitter </small></a>
-                    </div>
-
-              </div>
-   </main>
+        </div>
+    </main>
 
 </body>
 
 <script src="js/js.js"></script>
 <script src="js/game.js"></script>
 <!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 -->
+
 </html>

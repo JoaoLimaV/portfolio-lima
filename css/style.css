@@ -6,7 +6,6 @@ html, body {
     min-width: none;    
 
     margin: 0;
-    
 }
 
 .hideBody{
@@ -19,11 +18,11 @@ html::-webkit-scrollbar {
 }
   
 html::-webkit-scrollbar-track {
-    background: transparent; /* color of the tracking area */       
+    background: rgba(255, 255, 255, 0.5); /* color of the tracking area */       
   }
   
   html::-webkit-scrollbar-thumb {
-    background-color: rgb(33, 37, 41);    /* color of the scroll thumb */
+    background-color: white;    /* color of the scroll thumb */
     border-radius: 20px;          /* roundness of the scroll thumb */
   }
 
@@ -63,7 +62,8 @@ nav{
 
 /* Containers */
 
-#sobremim, #tecnologias, #meusprojetos, #contato{
+.inicio, #sobremim, #tecnologias, #meusprojetos, #contato{
+    width: 100%;
     min-height: 100%;
     height: auto;
 }
@@ -73,18 +73,21 @@ nav{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+
+}
+
+#sobremim{
+    background-color: rgba(33, 37, 41, 0.253);
 }
 
 #meusprojetos{
-    background: rgb(33, 37, 41) url('../img/caverna_sub.gif');
+    background: rgb(33, 37, 41) url('../img/montanhas.gif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-#sobremim{
-    background-color: rgb(0, 0, 0);
-}
 /* Inicio */
 
 .imgUser{
