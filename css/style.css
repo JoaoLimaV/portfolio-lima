@@ -78,14 +78,14 @@ nav{
 }
 
 #sobremim{
-    background-color: rgba(33, 37, 41, 0.253);
+    background-image: linear-gradient(180deg, rgb(0, 0, 0) 5%, rgba(33, 37, 41, 0.25) 95%);
 }
 
 #meusprojetos{
-    background: rgb(33, 37, 41) url('../img/montanhas.gif');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: linear-gradient(180deg, rgba(33, 37, 41, 0.25) 5%, rgba(255, 255, 255, 0.2) 95%);
+}
+#contato{
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 5%, rgb(32, 36, 40) 95%);
 }
 
 /* Inicio */
