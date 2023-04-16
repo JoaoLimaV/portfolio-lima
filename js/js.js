@@ -37,10 +37,10 @@ function closeOC() {
 // Download CV
 
 function downloadCV() {
-    var url = "Curriculo.pdf";
+    var url = "curriculo-net.pdf";
     var a = document.createElement("a");
     a.href = url;
-    a.download = "cv_joãolima";
+    a.download = "curriculo-net";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
